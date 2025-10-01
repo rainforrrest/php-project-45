@@ -1,9 +1,14 @@
 {
     "name": "hexlet/code",
+    "description": "Simple console game",
+    "license": "MIT",
     "authors": [
         {
             "name": "Larisa Pronchina"
         }
+    ],
+    "bin": [
+        "bin/brain-games"
     ],
     "require": {}
 }
