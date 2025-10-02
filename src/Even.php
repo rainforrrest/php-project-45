@@ -20,7 +20,7 @@ function even()
     
     for ($i = 0; $i < 3; $i++) {
 
-        $number = rand(1, 100);
+        $number = random_int(1, 100);
         line("Question: %s", $number);
         $answerCorrect = isEven($number) ? 'yes' : 'no';
         $answerUser = prompt('Your answer');
