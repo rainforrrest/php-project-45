@@ -5,6 +5,7 @@ namespace BrainGames\Engine;
 use function cli\line;
 use function cli\prompt;
 use BrainGames\Calc;
+use BrainGames\GCD;
 
 function runGame($rules, $game)
 {
@@ -23,6 +24,9 @@ function runGame($rules, $game)
     {
         case 'calc':
             [$question, $answerCorrect] = Calc\calcRound(); break;
+        case 'gcd':
+            [$question, $answerCorrect] = GCD\greatestDivisor(); break;
+        
     }
         
         line("Question: %s", $question);
