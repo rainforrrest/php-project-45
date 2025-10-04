@@ -17,3 +17,5 @@ Step 6, The Calculator Game, аскинема: https://asciinema.org/a/MirQRBx3U
 Step 7, The Greatest Common Divisor Game, аскинема: https://asciinema.org/a/XBplbGrP2ggZb8F1h7fZwtGSc
 
 Step 8, The Arithmetic progression Game, аскинема: https://asciinema.org/a/DBHyc9mnR0zjMk8gk0pMvtsNw
+
+Step 9, The Brain Prime Game, аскинема: https://asciinema.org/a/OTgcy7ns2ml8Rl2LJXTJoaa8m
