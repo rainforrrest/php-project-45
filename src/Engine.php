@@ -6,6 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use BrainGames\Calc;
 use BrainGames\GCD;
+use BrainGames\Progression;
 
 function runGame($rules, $game)
 {
@@ -26,6 +27,8 @@ function runGame($rules, $game)
             [$question, $answerCorrect] = Calc\calcRound(); break;
         case 'gcd':
             [$question, $answerCorrect] = GCD\greatestDivisor(); break;
+        case 'progression':
+            [$question, $answerCorrect] = Progression\createProgression(); break;    
         
     }
         
