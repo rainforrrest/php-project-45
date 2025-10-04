@@ -10,6 +10,4 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use BrainGames\Cli;
-
-Cli\greeting();
+echo 'Welcome to the Brain Games!';
