@@ -7,6 +7,7 @@ use function cli\prompt;
 use BrainGames\Calc;
 use BrainGames\GCD;
 use BrainGames\Progression;
+use BrainGames\Prime;
 
 function runGame($rules, $game)
 {
@@ -28,7 +29,9 @@ function runGame($rules, $game)
         case 'gcd':
             [$question, $answerCorrect] = GCD\greatestDivisor(); break;
         case 'progression':
-            [$question, $answerCorrect] = Progression\createProgression(); break;    
+            [$question, $answerCorrect] = Progression\createProgression(); break;   
+        case 'prime':
+            [$question, $answerCorrect] = Prime\calcPrime(); break;      
         
     }
         
