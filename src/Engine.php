@@ -4,12 +4,8 @@ namespace BrainGames\Engine;
 
 use function cli\line;
 use function cli\prompt;
-use BrainGames\Calc;
-use BrainGames\GCD;
-use BrainGames\Progression;
-use BrainGames\Prime;
 
-function runGame($rules, $game)
+function runGame($rules, callable $gameRound)
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
@@ -22,19 +18,8 @@ function runGame($rules, $game)
 
     for ($i = 0; $i < $numberOfTours; $i++) {
 
-        switch($game) 
-    {
-        case 'calc':
-            [$question, $answerCorrect] = Calc\calcRound(); break;
-        case 'gcd':
-            [$question, $answerCorrect] = GCD\greatestDivisor(); break;
-        case 'progression':
-            [$question, $answerCorrect] = Progression\createProgression(); break;   
-        case 'prime':
-            [$question, $answerCorrect] = Prime\calcPrime(); break;      
-        
-    }
-        
+        [$question, $answerCorrect] = $gameRound();
+
         line("Question: %s", $question);
         $answerUser = prompt('Your answer');
 
