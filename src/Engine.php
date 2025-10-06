@@ -15,9 +15,9 @@ function runGame($rules, $namespace)
 
     $numberOfTours = 3;
 
-    $functionParts = [$namespace, 'gameRound'];  // Вместо этого решения можно использовать callable-синтаксис, он элегантнее
+    // Вместо этого решения можно использовать callable-синтаксис, он элегантнее
+    $functionParts = [$namespace, 'gameRound'];  
     $function = implode('\\', $functionParts);
-
 
     for ($i = 0; $i < $numberOfTours; $i++) {
 
@@ -32,9 +32,7 @@ function runGame($rules, $namespace)
             line("Let's try again, {$name}!");
             return;  // Лучше не использовать exit для заврешения скрипта, т.к. он предназначен для аварийных случаев
         } 
-        
         line("Correct!");
-
     } 
 
 line("Congratulations, {$name}!");
