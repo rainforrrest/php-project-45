@@ -10,7 +10,6 @@ function primeGame()
     $namespase = __NAMESPACE__;
 
     runGame($rules, $namespase);
-
 }
 
 function gameRound()
@@ -24,7 +23,7 @@ function gameRound()
 function isSimple($number)
 {
     if ($number < 2) {
-        return false; 
+        return false;
     } elseif ($number === 2) {
         return true;
     } elseif ($number % 2 === 0) {
@@ -35,22 +34,22 @@ function isSimple($number)
     $root = floor(sqrt($number));
     
     if ($root >= 3) {
-        
+    
         $divisors = [];
         $firstElement = 3;
-        
+    
         while ($firstElement <= $root) {
-        	$divisors[] = $firstElement;
-        	$step = 2;
-        	$firstElement = $firstElement + $step;
+            $divisors[] = $firstElement;
+            $step = 2;
+            $firstElement = $firstElement + $step;
         }
-        
+    
         foreach ($divisors as $divisor) {
             if ($number % $divisor === 0) {
-            return false;
+                return false;
             }
-        } 
+        }
     }
-    
+
     return true;
 }

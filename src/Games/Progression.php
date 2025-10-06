@@ -10,7 +10,6 @@ function progressionGame()
     $namespase = __NAMESPACE__;
 
     runGame($rules, $namespase);
-
 }
 
 function gameRound(): array
@@ -30,7 +29,6 @@ function gameRound(): array
     $questionProgress = implode(' ', $progression);
 
     return ["{$questionProgress}", $rightAnswer];
-
 }
 
 function calcElement($start, $i, $step)

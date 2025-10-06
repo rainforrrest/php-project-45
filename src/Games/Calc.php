@@ -10,10 +10,9 @@ function calcGame() // Сначала нужно писать основные �
     $namespase = __NAMESPACE__;
 
     runGame($rules, $namespase);
-
 }
 
-function gameRound(): array 
+function gameRound(): array
 {
     $signs = ['+', '-', '*'];
     $operation = $signs[array_rand($signs)];
@@ -23,11 +22,11 @@ function gameRound(): array
 
     $answer = calculate($operation, $a, $b);
     return ["{$a} {$operation} {$b}", $answer];
-};
+}
 
 function calculate($operation, $a, $b)
 {
-    switch($operation) {
+    switch ($operation) {
         case '+':
             return $result = $a + $b;
         case '-':
@@ -37,5 +36,4 @@ function calculate($operation, $a, $b)
         default:
             return 'нет такой операции';
     }
-
 }

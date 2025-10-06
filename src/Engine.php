@@ -30,10 +30,9 @@ function runGame($rules, $namespace)
             line("Let's try again, {$name}!");
             return;
             // Лучше не использовать exit для заврешения скрипта, т.к. он предназначен для аварийных случаев
-        } 
+        }
         line("Correct!");
     }
 
-line("Congratulations, {$name}!");
-
+    line("Congratulations, {$name}!");
 }

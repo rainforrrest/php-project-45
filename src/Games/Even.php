@@ -10,16 +10,14 @@ function evenGame()
     $namespase = __NAMESPACE__;
 
     runGame($rules, $namespase);
-
 }
 
 function gameRound()
-{        
+{
     $number = random_int(1, 100);
     $answer = isEven($number) ? 'yes' : 'no';
-    
-    return ["{$number}", $answer];
 
+    return ["{$number}", $answer];
 }
 
 function isEven($value)
