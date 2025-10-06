@@ -2,13 +2,18 @@
 
 namespace BrainGames\Progression;
 
- function calcElement($start, $i, $step)
-    {
-        $currElem = $start + $i * $step;
-        return $currElem;
-    }
+use function BrainGames\Engine\runGame;
 
-function createProgression(): array
+function progressionGame()
+{
+    $rules = 'What number is missing in the progression?';
+    $namespase = __NAMESPACE__;
+
+    runGame($rules, $namespase);
+
+}
+
+function gameRound(): array
 {
     $start = random_int(1, 20);
     $step = random_int(1, 5);
@@ -26,4 +31,10 @@ function createProgression(): array
 
     return ["{$questionProgress}", $rightAnswer];
 
+}
+
+function calcElement($start, $i, $step)
+{
+    $currElem = $start + $i * $step;
+    return $currElem;
 }

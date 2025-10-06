@@ -4,31 +4,38 @@ namespace BrainGames\Calc;
 
 use function BrainGames\Engine\runGame;
 
-function calcGame()
+function calcGame() // Сначала нужно писать основные функции, после них вспомогательные
 {
     $rules = 'What is the result of the expression?';
-    $gameRound = function (): array 
-    {
-        $signs = ['+', '-', '*'];
-        $operation = $signs[array_rand($signs)];
+    $namespase = __NAMESPACE__;
 
-        $a = random_int(1, 10);
-        $b = random_int(1, 10);
+    runGame($rules, $namespase);
 
-        switch($operation) 
-            {
-                case '+':
-                    $answer = $a + $b; break;
-                case '-':
-                    $answer = $a - $b; break;
-                case '*':
-                    $answer = $a * $b; break;
-            }
+}
 
+function gameRound(): array 
+{
+    $signs = ['+', '-', '*'];
+    $operation = $signs[array_rand($signs)];
 
-        return ["{$a} {$operation} {$b}", $answer];
-    };
+    $a = random_int(1, 10);
+    $b = random_int(1, 10);
 
-    runGame($rules, $gameRound);
+    $answer = calculate($operation, $a, $b);
+    return ["{$a} {$operation} {$b}", $answer];
+};
+
+function calculate($operation, $a, $b)
+{
+    switch($operation) {
+        case '+':
+            return $result = $a + $b;
+        case '-':
+            return $result = $a - $b;
+        case '*':
+            return $result = $a * $b;
+        default:
+            return 'нет такой операции';
+    }
 
 }

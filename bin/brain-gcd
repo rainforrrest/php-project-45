@@ -2,6 +2,8 @@
 
 <?php
 
+use BrainGames\GCD;
+
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
 if (file_exists($autoloadPath1)) {
@@ -10,9 +12,4 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use BrainGames\Engine;
-
-$rules = 'Find the greatest common divisor of given numbers.';
-$game = 'gcd';
-
-Engine\runGame($rules, $game);
+GCD\gcdGame();

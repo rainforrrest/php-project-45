@@ -2,6 +2,8 @@
 
 <?php
 
+use BrainGames\Prime;
+
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
 if (file_exists($autoloadPath1)) {
@@ -10,9 +12,4 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use BrainGames\Engine;
-
-$rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-$game = 'prime';
-
-Engine\runGame($rules, $game);
+Prime\primeGame();
