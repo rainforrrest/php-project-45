@@ -16,24 +16,23 @@ function runGame($rules, $namespace)
     $numberOfTours = 3;
 
     // Вместо этого решения можно использовать callable-синтаксис, он элегантнее
-    $functionParts = [$namespace, 'gameRound'];  
+    $functionParts = [$namespace, 'gameRound'];
     $function = implode('\\', $functionParts);
-
+    
     for ($i = 0; $i < $numberOfTours; $i++) {
-
         [$question, $answerCorrect] = $function();
 
         line("Question: %s", $question);
         $answerUser = prompt('Your answer');
 
         if ($answerCorrect != $answerUser) {
-
             line("'{$answerUser}' is wrong answer ;(. Correct answer was '{$answerCorrect}'.");
             line("Let's try again, {$name}!");
-            return;  // Лучше не использовать exit для заврешения скрипта, т.к. он предназначен для аварийных случаев
+            return;
+            // Лучше не использовать exit для заврешения скрипта, т.к. он предназначен для аварийных случаев
         } 
         line("Correct!");
-    } 
+    }
 
 line("Congratulations, {$name}!");
 
