@@ -18,7 +18,7 @@ function runGame($rules, $namespace)
     // Вместо этого решения можно использовать callable-синтаксис, он элегантнее
     $functionParts = [$namespace, 'gameRound'];
     $function = implode('\\', $functionParts);
-    
+
     for ($i = 0; $i < $numberOfTours; $i++) {
         [$question, $answerCorrect] = $function();
 

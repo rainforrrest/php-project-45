@@ -32,18 +32,17 @@ function isSimple($number)
 
 
     $root = floor(sqrt($number));
-    
+
     if ($root >= 3) {
-    
         $divisors = [];
         $firstElement = 3;
-    
+
         while ($firstElement <= $root) {
             $divisors[] = $firstElement;
             $step = 2;
             $firstElement = $firstElement + $step;
         }
-    
+
         foreach ($divisors as $divisor) {
             if ($number % $divisor === 0) {
                 return false;
