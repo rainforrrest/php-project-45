@@ -5,7 +5,9 @@ namespace BrainGames\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function runGame($rules, $namespace)
+const NUMBER_OF_TOURS = 3;
+
+function runGame($rules, callable $gameRound)
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
@@ -13,14 +15,12 @@ function runGame($rules, $namespace)
 
     line("{$rules}");
 
-    $numberOfTours = 3;
+    // Можно использовать callable-синтаксис, он элегантнее
+    // Можно массив вопрос-ответы на 3 раунда сразу собирать в скрипте, потом передавать сюда в движок
+    // Вариант с массивом подойдет, если у разных игр разное кол-во раундов
 
-    // Вместо этого решения можно использовать callable-синтаксис, он элегантнее
-    $functionParts = [$namespace, 'gameRound'];
-    $function = implode('\\', $functionParts);
-
-    for ($i = 0; $i < $numberOfTours; $i++) {
-        [$question, $answerCorrect] = $function();
+    for ($i = 0; $i < NUMBER_OF_TOURS; $i++) {
+        [$question, $answerCorrect] = $gameRound();
 
         line("Question: %s", $question);
         $answerUser = prompt('Your answer');

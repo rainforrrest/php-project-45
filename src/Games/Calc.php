@@ -7,21 +7,19 @@ use function BrainGames\Engine\runGame;
 function calcGame() // Сначала нужно писать основные функции, после них вспомогательные
 {
     $rules = 'What is the result of the expression?';
-    $namespase = __NAMESPACE__;
 
-    runGame($rules, $namespase);
-}
+    $gameRound = function (): array {
+        $signs = ['+', '-', '*'];
+        $operation = $signs[array_rand($signs)];
 
-function gameRound(): array
-{
-    $signs = ['+', '-', '*'];
-    $operation = $signs[array_rand($signs)];
+        $a = random_int(1, 10);
+        $b = random_int(1, 10);
 
-    $a = random_int(1, 10);
-    $b = random_int(1, 10);
+        $answer = calculate($operation, $a, $b);
+        return ["{$a} {$operation} {$b}", $answer];
+    };
 
-    $answer = calculate($operation, $a, $b);
-    return ["{$a} {$operation} {$b}", $answer];
+    runGame($rules, $gameRound);
 }
 
 function calculate($operation, $a, $b)
@@ -34,6 +32,6 @@ function calculate($operation, $a, $b)
         case '*':
             return $result = $a * $b;
         default:
-            return 'нет такой операции';
+            return 'нет такой операции'; // у конструкции Switch должен быть варинт с Default!!
     }
 }

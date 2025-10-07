@@ -7,17 +7,15 @@ use function BrainGames\Engine\runGame;
 function evenGame()
 {
     $rules = 'Answer "yes" if the number is even, otherwise answer "no".';
-    $namespase = __NAMESPACE__;
 
-    runGame($rules, $namespase);
-}
+    $gameRound = function (): array {
+        $number = random_int(1, 100);
+        $answer = isEven($number) ? 'yes' : 'no';
 
-function gameRound()
-{
-    $number = random_int(1, 100);
-    $answer = isEven($number) ? 'yes' : 'no';
+        return ["{$number}", $answer];
+    };
 
-    return ["{$number}", $answer];
+    runGame($rules, $gameRound);
 }
 
 function isEven($value)

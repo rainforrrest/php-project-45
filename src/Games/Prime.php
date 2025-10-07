@@ -7,17 +7,15 @@ use function BrainGames\Engine\runGame;
 function primeGame()
 {
     $rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-    $namespase = __NAMESPACE__;
 
-    runGame($rules, $namespase);
-}
+    $gameRound = function (): array {
+        $numberQues = random_int(1, 100);
+        $corrAnswer = isSimple($numberQues) ? 'yes' : 'no';
 
-function gameRound()
-{
-    $numberQues = random_int(1, 100);
-    $corrAnswer = isSimple($numberQues) ? 'yes' : 'no';
+        return ["{$numberQues}", $corrAnswer];
+    };
 
-    return ["{$numberQues}", $corrAnswer];
+    runGame($rules, $gameRound);
 }
 
 function isSimple($number)
