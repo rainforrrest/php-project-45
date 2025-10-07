@@ -13,7 +13,7 @@ function gcdGame(): void
         $b = random_int(0, 20);
 
         $ques = "{$a} {$b}";
-        $theGCD = findGCD($a, $b);
+        $theGCD = (string) findGCD($a, $b);
 
         return ["{$ques}", $theGCD];
     };

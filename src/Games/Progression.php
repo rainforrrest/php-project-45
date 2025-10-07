@@ -19,7 +19,7 @@ function progressionGame(): void
         }
 
         $randomIndex = random_int(0, 9);
-        $rightAnswer = $progression[$randomIndex];
+        $rightAnswer = (string) $progression[$randomIndex];
         $progression[$randomIndex] = '..';
         $questionProgress = implode(' ', $progression);
 

@@ -15,7 +15,7 @@ function calcGame(): void // Сначала нужно писать основн
         $a = random_int(1, 10);
         $b = random_int(1, 10);
 
-        $answer = calculate($operation, $a, $b);
+        $answer = (string) calculate($operation, $a, $b);
         return ["{$a} {$operation} {$b}", $answer];
     };
 
