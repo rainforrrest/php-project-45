@@ -19,7 +19,7 @@ function calcGame(): void // Сначала нужно писать основн
         return ["{$a} {$operation} {$b}", $answer];
     };
 
-    runGame(string $rules, $gameRound);
+    runGame($rules, $gameRound);
 }
 
 function calculate(string $operation, int $a, int $b): int
