@@ -4,7 +4,7 @@ namespace BrainGames\Progression;
 
 use function BrainGames\Engine\runGame;
 
-function progressionGame()
+function progressionGame(): void
 {
     $rules = 'What number is missing in the progression?';
 
@@ -29,7 +29,7 @@ function progressionGame()
     runGame($rules, $gameRound);
 }
 
-function calcElement($start, $i, $step)
+function calcElement(int $start, int $i, int $step): int
 {
     $currElem = $start + $i * $step;
     return $currElem;

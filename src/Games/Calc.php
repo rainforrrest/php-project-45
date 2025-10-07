@@ -4,7 +4,7 @@ namespace BrainGames\Calc;
 
 use function BrainGames\Engine\runGame;
 
-function calcGame() // Сначала нужно писать основные функции, после них вспомогательные
+function calcGame(): void // Сначала нужно писать основные функции, после них вспомогательные
 {
     $rules = 'What is the result of the expression?';
 
@@ -19,10 +19,10 @@ function calcGame() // Сначала нужно писать основные �
         return ["{$a} {$operation} {$b}", $answer];
     };
 
-    runGame($rules, $gameRound);
+    runGame(string $rules, $gameRound);
 }
 
-function calculate($operation, $a, $b)
+function calculate(string $operation, int $a, int $b): int
 {
     switch ($operation) {
         case '+':

@@ -4,7 +4,7 @@ namespace BrainGames\Even;
 
 use function BrainGames\Engine\runGame;
 
-function evenGame()
+function evenGame(): void
 {
     $rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
@@ -18,7 +18,7 @@ function evenGame()
     runGame($rules, $gameRound);
 }
 
-function isEven($value)
+function isEven(int $value): bool
 {
     return $value % 2 === 0;
 }
