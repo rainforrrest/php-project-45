@@ -22,7 +22,7 @@ function calcGame(): void // Сначала нужно писать основн
     runGame($rules, $gameRound);
 }
 
-function calculate(string $operation, int $a, int $b): int
+function calculate(string $operation, int $a, int $b): ?int
 {
     switch ($operation) {
         case '+':
@@ -32,6 +32,6 @@ function calculate(string $operation, int $a, int $b): int
         case '*':
             return $result = $a * $b;
         default:
-            return 'нет такой операции'; // у конструкции Switch должен быть варинт с Default!!
+            return null; // у конструкции Switch должен быть варинт с Default!!
     }
 }
