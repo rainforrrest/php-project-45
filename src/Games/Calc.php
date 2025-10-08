@@ -32,6 +32,7 @@ function calculate(string $operation, int $a, int $b): int
         case '*':
             return $a * $b;
         default:
-            throw new InvalidArgumentException("Неподдерживаемая операция: $operation");
+            fwrite(STDERR, "Ошибка: неизвестная операция '$operation'\n");
+            exit(1);
     }
 }
