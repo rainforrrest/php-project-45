@@ -1,10 +1,10 @@
 <?php
 
-namespace BrainGames\Calc;
+namespace BrainGames\Games\Calc;
 
 use function BrainGames\Engine\runGame;
 
-function calcGame(): void // Сначала нужно писать основные функции, после них вспомогательные
+function start(): void
 {
     $rules = 'What is the result of the expression?';
 
@@ -22,16 +22,16 @@ function calcGame(): void // Сначала нужно писать основн
     runGame($rules, $gameRound);
 }
 
-function calculate(string $operation, int $a, int $b): ?int
+function calculate(string $operation, int $a, int $b): int
 {
     switch ($operation) {
         case '+':
-            return $result = $a + $b;
+            return $a + $b;
         case '-':
-            return $result = $a - $b;
+            return $a - $b;
         case '*':
-            return $result = $a * $b;
+            return $a * $b;
         default:
-            return null; // у конструкции Switch должен быть варинт с Default!!
+            throw new InvalidArgumentException("Неподдерживаемая операция: $operation");
     }
 }

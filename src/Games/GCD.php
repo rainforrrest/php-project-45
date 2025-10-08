@@ -1,10 +1,10 @@
 <?php
 
-namespace BrainGames\GCD;
+namespace BrainGames\Games\GCD;
 
 use function BrainGames\Engine\runGame;
 
-function gcdGame(): void
+function start(): void
 {
     $rules = 'Find the greatest common divisor of given numbers.';
 
@@ -33,5 +33,5 @@ function findGCD(int $a, int $b): int
         $b = $c;
     }
 
-    return $GCD = $a;
+    return $a;
 }

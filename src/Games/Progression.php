@@ -1,19 +1,21 @@
 <?php
 
-namespace BrainGames\Progression;
+namespace BrainGames\Games\Progression;
 
 use function BrainGames\Engine\runGame;
 
-function progressionGame(): void
+function start(): void
 {
     $rules = 'What number is missing in the progression?';
 
     $gameRound = function (): array {
+
         $start = random_int(1, 20);
         $step = random_int(1, 5);
+        $lengthOfProgression = 10;
         $progression = [];
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < $lengthOfProgression; $i++) {
             $currentElement = calcElement($start, $i, $step);
             $progression[] = $currentElement;
         }

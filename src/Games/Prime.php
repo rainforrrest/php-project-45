@@ -1,16 +1,16 @@
 <?php
 
-namespace BrainGames\Prime;
+namespace BrainGames\Games\Prime;
 
 use function BrainGames\Engine\runGame;
 
-function primeGame(): void
+function start(): void
 {
     $rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
     $gameRound = function (): array {
         $numberQues = random_int(1, 100);
-        $corrAnswer = isSimple($numberQues) ? 'yes' : 'no';
+        $corrAnswer = isPrime($numberQues) ? 'yes' : 'no';
 
         return ["{$numberQues}", $corrAnswer];
     };
@@ -18,35 +18,16 @@ function primeGame(): void
     runGame($rules, $gameRound);
 }
 
-function isSimple(int $number): bool
+function isPrime(int $number): bool
 {
-    if ($number < 2) {
-        return false;
-    } elseif ($number === 2) {
-        return true;
-    } elseif ($number % 2 === 0) {
-        return false;
-    }
+    $answer = true;
 
-
-    $root = floor(sqrt($number));
-
-    if ($root >= 3) {
-        $divisors = [];
-        $firstElement = 3;
-
-        while ($firstElement <= $root) {
-            $divisors[] = $firstElement;
-            $step = 2;
-            $firstElement = $firstElement + $step;
-        }
-
-        foreach ($divisors as $divisor) {
-            if ($number % $divisor === 0) {
-                return false;
-            }
+    for ($i = 2; $i < $number; $i++) {
+        if ($number % $i === 0) {
+            $answer = false;
+            break;
         }
     }
 
-    return true;
+    return $answer;
 }

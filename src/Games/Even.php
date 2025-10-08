@@ -1,18 +1,18 @@
 <?php
 
-namespace BrainGames\Even;
+namespace BrainGames\Games\Even;
 
 use function BrainGames\Engine\runGame;
 
-function evenGame(): void
+function start(): void
 {
     $rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
     $gameRound = function (): array {
-        $number = random_int(1, 100);
-        $answer = isEven($number) ? 'yes' : 'no';
+        $question = random_int(1, 100);
+        $answer = isEven($question) ? 'yes' : 'no';
 
-        return ["{$number}", $answer];
+        return ["{$question}", $answer];
     };
 
     runGame($rules, $gameRound);
