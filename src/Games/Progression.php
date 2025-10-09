@@ -4,6 +4,8 @@ namespace BrainGames\Games\Progression;
 
 use function BrainGames\Engine\runGame;
 
+const LENGTH_OF_PROGRESSION = 10;
+
 function start(): void
 {
     $rules = 'What number is missing in the progression?';
@@ -12,10 +14,9 @@ function start(): void
 
         $start = random_int(1, 20);
         $step = random_int(1, 5);
-        $lengthOfProgression = 10;
         $progression = [];
 
-        for ($i = 0; $i < $lengthOfProgression; $i++) {
+        for ($i = 0; $i < LENGTH_OF_PROGRESSION; $i++) {
             $currentElement = calcElement($start, $i, $step);
             $progression[] = $currentElement;
         }
