@@ -22,6 +22,10 @@ function isPrime(int $number): bool
 {
     $answer = true;
 
+    if ($number < 2) {
+        $answer = false;
+    }
+
     for ($i = 2; $i < $number; $i++) {
         if ($number % $i === 0) {
             $answer = false;
